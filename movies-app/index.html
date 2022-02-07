@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Movie List</h1>
+    <form action="">
+        <div class="row mb-5">
+         <div class="form-group col-sm-4">
+            Title:
+            <input id="title" class="form-control" type="text" placeholder="Movie Title">
+          </div>
+         <div class="form-group col-sm-4">
+            Rating:
+            <input id="rating" class="form-control" type="number" min="0" max="10" placeholder="10">
+         </div>
+        </div>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </form>
+    <ul></ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+
+$('form').on('submit', function(e){
+    e.preventDefault();
+    let $movieTitle = $("#title").val();
+    let $movieRating = $('#rating').val();
+    let $delete = $('ul').on('click', '#delete', (e) => {
+    e.target.parentElement.remove();
+})
+    $('ul').append(`<li>${$movieTitle} - ${$movieRating} <button class="btn btn-danger" id="delete"> X </button></li>`);
+});
+</script>
+</body>
+
+</html>
